@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#7f1018">
+<title>Shri Jagannath Dham</title>
+<style>
+:root{--maroon:#74111a;--red:#a51d27;--gold:#e8b84c;--cream:#fff8e9;--ink:#39231e;--muted:#806b5e}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Georgia,"Noto Serif",serif}
+button,input,textarea{font:inherit}
+button,a{cursor:pointer}
+button{border:0}
+.topline{height:5px;background:linear-gradient(90deg,var(--gold),#fff0a7,var(--gold))}
+header{background:var(--maroon);color:#fff8e9;text-align:center;padding:25px 16px 20px;border-bottom:4px solid var(--gold)}
+.brand{font-size:clamp(25px,5vw,42px);letter-spacing:.04em;margin:0}
+.odia{font-size:clamp(21px,4vw,30px);color:#ffdf82;margin:8px 0 0}
+.nav{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin-top:17px}
+.nav a,.nav button{color:#fff8e9;background:#ffffff17;border:1px solid #ffffff40;border-radius:30px;padding:9px 14px;text-decoration:none;font-size:14px}
+main{max-width:1100px;margin:auto;padding:24px 16px 60px}
+section{margin:28px 0}
+.section-title{text-align:center;color:var(--maroon);font-size:clamp(22px,4vw,30px);margin:0 0 17px}
+.section-title:after{content:"";display:block;width:75px;height:3px;background:var(--gold);margin:10px auto 0}
+.welcome{min-height:72vh;display:grid;place-items:center;text-align:center;position:relative;overflow:hidden;border:5px double var(--gold);border-radius:18px;background:radial-gradient(ellipse at center,#a52a30 0,#74111a 55%,#42080e 100%);color:#fff8e9;padding:30px 18px}
+.welcome:before,.welcome:after{content:"";position:absolute;top:0;bottom:0;width:12%;background:repeating-linear-gradient(90deg,#b5222c 0 18px,#761018 18px 34px);border:2px solid #e8b84c;opacity:.7}
+.welcome:before{left:0}.welcome:after{right:0}
+.welcome-inner{position:relative;z-index:1;max-width:700px}
+.welcome .odia{font-size:clamp(25px,5vw,42px);margin-bottom:15px}
+.welcome h1{font-size:clamp(27px,5vw,48px);margin:8px 0;color:#ffe7a0}
+.welcome p{font-size:clamp(16px,2.5vw,21px);line-height:1.6}
+.gold-button{background:var(--gold);color:#4b1014;border-radius:30px;padding:13px 24px;font-weight:bold;margin-top:12px;box-shadow:0 4px 0 #9e6b17}
+.small-note{font:13px/1.5 Arial,sans-serif;color:#ead7c8}
+.panel{background:#fffdf6;border:1px solid #ead8b2;border-radius:15px;padding:18px;box-shadow:0 5px 18px #54100b0c}
+.video-wrap{width:100%;aspect-ratio:16/9;background:#26070a;border-radius:12px;overflow:hidden;display:grid;place-items:center}
+.video-wrap iframe{width:100%;height:100%;border:0}
+.empty{color:#d8c2ad;text-align:center;padding:24px;font:15px/1.6 Arial,sans-serif}
+.link-button{display:inline-block;background:var(--maroon);color:white;padding:10px 16px;border-radius:24px;text-decoration:none;margin-top:12px}
+.two-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.info-card{min-height:130px;text-align:center;border-top:4px solid var(--gold)}
+.info-card h3{color:var(--maroon);margin:4px 0 10px}
+.info-card p{white-space:pre-wrap;line-height:1.55;margin:0}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.photo-card{background:#fffdf6;border:1px solid #ead8b2;border-radius:12px;overflow:hidden}
+.photo-card img{width:100%;height:190px;object-fit:cover;display:block}
+.photo-card figcaption{padding:10px;font-size:14px;white-space:pre-wrap}
+.music-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.music-card h3{margin:0 0 9px;color:var(--maroon)}
+.music-card iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:9px;background:#26070a}
+#admin{display:none}
+#admin.open{display:block}
+.admin-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field label{font:bold 14px Arial,sans-serif;color:var(--maroon)}
+.field input,.field textarea{width:100%;padding:11px;border:1px solid #d8c5a2;border-radius:8px;background:white;color:var(--ink)}
+.field textarea{min-height:90px;resize:vertical}
+.admin-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.admin-actions button{background:var(--maroon);color:white;padding:11px 16px;border-radius:22px}
+.admin-actions .secondary{background:#6e5a4b}
+.admin-hint{font:13px/1.6 Arial,sans-serif;color:var(--muted)}
+footer{text-align:center;background:#4b0b11;color:#f9e9cb;padding:25px 15px;border-top:4px solid var(--gold)}
+@media(max-width:700px){.two-cards,.admin-grid,.music-list{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.welcome:before,.welcome:after{width:7%}.photo-card img{height:150px}}
+@media(max-width:420px){.gallery{grid-template-columns:1fr}.photo-card img{height:210px}}
+</style>
+</head>
+<body>
+<div class="topline"></div>
+<header>
+  <h1 class="brand">SHRI JAGANNATH DHAM</h1>
+  <p class="odia">|| ଜୟ ଜଗନ୍ନାଥ ||</p>
+  <nav class="nav" aria-label="Main navigation">
+    <a href="#live">Live Darshan</a><a href="#today">Today</a><a href="#bhajans">Bhajan &amp; Music</a><a href="#family">Family Gallery</a><a href="#puja">Puja Ghar</a>
+    <button type="button" id="adminToggle">Admin</button>
+  </nav>
+</header>
+
+<main>
+  <section class="welcome" id="welcome">
+    <div class="welcome-inner">
+      <p class="odia">|| ଜୟ ଜଗନ୍ନାଥ ||</p>
+      <h1>Welcome to Our Home</h1>
+      <p>Welcome to Our Live Feed of Patita Pabana Darshan</p>
+      <h2 class="odia">ପତିତପାବନ ଦର୍ଶନ</h2>
+      <button class="gold-button" id="beginButton" type="button">Tap to Begin Darshan</button>
+      <p class="small-note">A devotional welcome to our home temple.</p>
+    </div>
+  </section>
+
+  <section id="live">
+    <h2 class="section-title">Live Patita Pabana Darshan</h2>
+    <div class="panel">
+      <div class="video-wrap" id="liveVideo"><div class="empty">Live stream will appear here when a YouTube Live link is added.</div></div>
+      <div style="text-align:center"><a class="link-button" id="liveOpen" href="#" target="_blank" rel="noopener" hidden>Open Live Stream on YouTube</a></div>
+    </div>
+  </section>
+
+  <section id="today">
+    <h2 class="section-title">Today at Shri Jagannath Dham</h2>
+    <div class="two-cards">
+      <article class="panel info-card"><h3>Today’s Important Day</h3><p id="importantDay"></p></article>
+      <article class="panel info-card"><h3>Today’s Tithi</h3><p id="todayTithi"></p></article>
+    </div>
+  </section>
+
+  <section id="bhajans">
+    <h2 class="section-title">Bhajan &amp; Music</h2>
+    <div class="music-list" id="musicList"><div class="panel empty" style="color:#806b5e">Bhajan videos will appear here when links are added.</div></div>
+  </section>
+
+  <section id="family">
+    <h2 class="section-title">Family Celebration Gallery</h2>
+    <div class="gallery" id="familyGallery"><p class="small-note">Family celebration photos will appear here when added.</p></div>
+  </section>
+
+  <section id="puja">
+    <h2 class="section-title">Our Home Puja Ghar</h2>
+    <div class="gallery" id="pujaGallery"><p class="small-note">Puja ghar photos will appear here when added.</p></div>
+  </section>
+
+  <section id="admin">
+    <h2 class="section-title">Admin — Manage Shri Jagannath Dham</h2>
+    <div class="panel">
+      <p class="admin-hint">Enter your own content below. This starter website saves changes in this browser only. It does not provide secure login or automatically sync edits to other visitors’ devices or a published host.</p>
+      <div class="admin-grid">
+        <div class="field"><label for="liveLink">Jagannath TV Live YouTube link</label><input id="liveLink" type="url" placeholder="Paste your own live link"></div>
+        <div class="field"><label for="bhajanLink">Opening bhajan audio link (optional)</label><input id="bhajanLink" type="url" placeholder="Paste your own audio link"></div>
+        <div class="field"><label for="dayInput">Today’s Important Day</label><textarea id="dayInput" placeholder="Enter your information"></textarea></div>
+        <div class="field"><label for="tithiInput">Today’s Tithi</label><textarea id="tithiInput" placeholder="Enter your tithi"></textarea></div>
+        <div class="field"><label for="musicInput">Bhajan YouTube links (one per line)</label><textarea id="musicInput" placeholder="Paste your own YouTube links, one per line"></textarea></div>
+        <div class="field"><label for="familyInput">Family photo URLs (one per line)</label><textarea id="familyInput" placeholder="Add image URLs, one per line"></textarea></div>
+        <div class="field"><label for="familyCaptions">Family photo captions (one per line)</label><textarea id="familyCaptions" placeholder="Add captions in matching order"></textarea></div>
+        <div class="field"><label for="pujaInput">Puja ghar photo URLs (one per line)</label><textarea id="pujaInput" placeholder="Add image URLs, one per line"></textarea></div>
+        <div class="field"><label for="pujaCaptions">Puja ghar photo captions (one per line)</label><textarea id="pujaCaptions" placeholder="Add captions in matching order"></textarea></div>
+        <div class="field"><label for="messageInput">Devotional message (optional)</label><textarea id="messageInput" placeholder="Enter your own message"></textarea></div>
+      </div>
+      <div class="admin-actions">
+        <button type="button" id="saveButton">Save on This Browser</button>
+        <button type="button" class="secondary" id="clearButton">Clear Saved Content</button>
+        <button type="button" class="secondary" id="closeAdmin">Close Admin</button>
+      </div>
+      <p class="admin-hint" id="saveStatus" aria-live="polite"></p>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="odia">|| ଜୟ ଜଗନ୍ନାଥ ||</div>
+  <p>Shri Jagannath Dham · Our Home Temple</p>
+</footer>
+
+<audio id="openingAudio" preload="none"></audio>
+<script>
+const $ = id => document.getElementById(id);
+const STORAGE_KEY = "shriJagannathDhamContent";
+const fields = ["liveLink","bhajanLink","dayInput","tithiInput","musicInput","familyInput","familyCaptions","pujaInput","pujaCaptions","messageInput"];
+
+function youtubeId(value){
+  if(!value) return "";
+  try{
+    const u = new URL(value.trim());
+    if(u.hostname.includes("youtu.be")) return u.pathname.slice(1);
+    if(u.hostname.includes("youtube.com")){
+      if(u.pathname === "/watch") return u.searchParams.get("v") || "";
+      const parts = u.pathname.split("/");
+      if(["live","embed","shorts"].includes(parts[1])) return parts[2] || "";
+    }
+  }catch(e){}
+  return "";
+}
+function renderVideo(link, target, muted=true){
+  const id = youtubeId(link);
+  target.innerHTML = "";
+  if(!id){target.innerHTML='<div class="empty">Live stream will appear here when a YouTube Live link is added.</div>';return;}
+  const iframe = document.createElement("iframe");
+  iframe.src = "https://www.youtube.com/embed/" + encodeURIComponent(id) + (muted ? "?mute=1&playsinline=1" : "?playsinline=1");
+  iframe.title = "YouTube video player";
+  iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+  iframe.allowFullscreen = true;
+  target.appendChild(iframe);
+}
+function videoCard(link){
+  const id = youtubeId(link);
+  if(!id) return "";
+  const box = document.createElement("div");
+  box.className = "panel music-card";
+  const frame = document.createElement("iframe");
+  frame.src = "https://www.youtube.com/embed/" + encodeURIComponent(id) + "?playsinline=1";
+  frame.title = "Bhajan video";
+  frame.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+  frame.allowFullscreen = true;
+  box.appendChild(frame);
+  return box;
+}
+function renderGallery(lines, captions, target){
+  target.innerHTML = "";
+  const urls = lines.split(/\r?\n/).map(s=>s.trim()).filter(Boolean);
+  if(!urls.length){target.innerHTML='<p class="small-note">Photos will appear here when added.</p>';return;}
+  urls.forEach((url,i)=>{
+    const figure = document.createElement("figure");
+    figure.className = "photo-card";
+    const img = document.createElement("img");
+    img.src = url; img.alt = "Devotional or family gallery photo"; img.loading = "lazy";
+    const cap = document.createElement("figcaption");
+    cap.textContent = captions.split(/\r?\n/)[i] || "";
+    figure.append(img,cap); target.appendChild(figure);
+  });
+}
+function applyContent(data){
+  $("importantDay").textContent = data.dayInput || "";
+  $("todayTithi").textContent = data.tithiInput || "";
+  renderVideo(data.liveLink || "", $("liveVideo"), true);
+  const liveId = youtubeId(data.liveLink || "");
+  $("liveOpen").hidden = !liveId;
+  $("liveOpen").href = liveId ? "https://www.youtube.com/watch?v="+encodeURIComponent(liveId) : "#";
+  $("musicList").innerHTML = "";
+  const links = (data.musicInput || "").split(/\r?\n/).map(s=>s.trim()).filter(Boolean);
+  const cards = links.map(videoCard).filter(Boolean);
+  if(!cards.length){$("musicList").innerHTML='<div class="panel empty" style="color:#806b5e">Bhajan videos will appear here when links are added.</div>';}
+  else cards.forEach(card=>$("musicList").appendChild(card));
+  renderGallery(data.familyInput || "", data.familyCaptions || "", $("familyGallery"));
+  renderGallery(data.pujaInput || "", data.pujaCaptions || "", $("pujaGallery"));
+  $("messageInput").value = data.messageInput || "";
+}
+function load(){
+  let data = {};
+  try{data = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");}catch(e){}
+  fields.forEach(id=>$(id).value = data[id] || "");
+  applyContent(data);
+}
+$("adminToggle").addEventListener("click",()=>{$("admin").classList.toggle("open");$("admin").scrollIntoView({behavior:"smooth",block:"start"});});
+$("closeAdmin").addEventListener("click",()=>{$("admin").classList.remove("open");});
+$("saveButton").addEventListener("click",()=>{
+  const data = {};
+  fields.forEach(id=>data[id] = $(id).value.trim());
+  localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
+  applyContent(data);
+  $("saveStatus").textContent = "Saved in this browser. For a public website, publish/deploy the updated site through its hosting platform.";
+});
+$("clearButton").addEventListener("click",()=>{
+  if(!confirm("Clear all saved content from this browser?")) return;
+  localStorage.removeItem(STORAGE_KEY);
+  fields.forEach(id=>$(id).value="");
+  applyContent({});
+  $("saveStatus").textContent = "Saved content cleared from this browser.";
+});
+$("beginButton").addEventListener("click",()=>{
+  $("welcome").style.display="none";
+  const audioUrl = $("bhajanLink").value.trim();
+  if(audioUrl){$("openingAudio").src=audioUrl;$("openingAudio").play().catch(()=>{});}
+  $("live").scrollIntoView({behavior:"smooth"});
+});
+load();
+</script>
+</body>
+</html>
